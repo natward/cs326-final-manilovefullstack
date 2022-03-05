@@ -1,6 +1,6 @@
 Team Name: ManILoveFullStack
 
-Application Name: 
+Application Name: OnlyClubs
 
 Team Overview:
 Yuval Shechter; YuvalShechter; https://github.com/YuvalShechter
