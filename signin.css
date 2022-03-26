@@ -1,0 +1,45 @@
+label, input{
+    display: block;
+}
+
+button {
+    background-color: slateblue;
+    color: #FFFFFF;
+    padding: 1%;
+    width: 10%;
+    border-radius: 10px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.signin-inp {
+    margin-bottom: 7%;
+    font-size: xx-large;
+}
+
+.title-space {
+    margin-top: 5%;
+    margin-bottom: 12%;
+}
+
+#title {
+    color: crimson;
+    font-weight: bolder;
+}
+
+#signup {
+    font-size: 130%;
+}
+
+#signin-section {
+    margin-top: 10%;
+}
+
+#signin {
+    margin-top: 0.1%;
+    font-size: 130%;
+}
