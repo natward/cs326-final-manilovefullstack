@@ -49,6 +49,6 @@ The club dashboard is the central hub for each club. Each club page contains an 
 ## Event Calendar
 
 ![image info](./images/calendarwireframe.png)
-![image info](./images/clubpagewireframe.png)
+![image info](./images/calendarscrnshot.png)
 
 The event calendar is specific to each club and contains any synchronous meetings, events, and activities related to the club.
