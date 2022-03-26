@@ -8,10 +8,10 @@ OnlyClubs
 
 # Team Overview
 
-Yuval Shechter (@YuvalShechter)
-Catherine Huang (@catherinehuang1)
-Sebastian McKay (@Sebastian-McKayy)
-Natalie Ward (@natward)
+* Yuval Shechter (@YuvalShechter)
+* Catherine Huang (@catherinehuang1)
+* Sebastian McKay (@Sebastian-McKayy)
+* Natalie Ward (@natward)
 
 # Innovative Idea
 
