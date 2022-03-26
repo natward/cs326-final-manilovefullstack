@@ -1,0 +1,76 @@
+#flex-container{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+}
+
+#account-pic{
+    width:5%;
+}
+
+#main-div{
+    width:76%;
+    margin-left:2%;
+    margin-right:2%;
+}
+
+#side-div{
+    width:12%;
+    margin-right:3%;
+}
+
+#title{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding-top:3.5%;
+}
+
+.sub-title{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.club{
+    background-color:slateblue;
+    text-align:center;
+    color: white;
+    border-radius: 5px;
+    padding-top:5%;
+    padding-bottom:5%;
+    margin-top:7%;
+    width: 100%
+}
+
+#search-bar{
+    width:100%;
+}
+
+#pro-pic{
+    width:100%
+}
+
+#friend{
+    margin-top: 40%;
+}
+
+.friend-pic{
+    width: 31.33%;
+}
+
+#pro-pic-caption{
+    width: 33%;
+    text-align: center;
+}
+
+#label-pic{
+    display:flex;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10%;
+}
+
+#pic-label{
+    width:31.33%
+}
