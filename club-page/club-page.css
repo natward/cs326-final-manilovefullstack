@@ -1,0 +1,32 @@
+#logo {
+    color: crimson;
+    font: bold;
+    text-align: center;
+}
+
+#club-name {
+    font-size: 180%;
+    font: bold;
+    text-align: left;
+    margin-left: 3%;
+}
+
+#dog-pic {
+    width: 50%;
+    height: auto;
+    padding-left: 3%;
+}
+
+#dog-vid {
+    /* display: flex;
+    flex-direction: row-reverse; */
+    /* margin-right: 3%; */
+    padding-left: 5%;
+    padding-right: 3%;
+    width: 60%
+}
+#media{
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
+}
