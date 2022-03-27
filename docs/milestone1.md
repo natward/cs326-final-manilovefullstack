@@ -25,16 +25,17 @@ Our idea is a website for student clubs, with categories of interest that can be
 
 Students create accounts with their Spire IDs to login. Once logged in, new users see a bunch of cards (with pictures) corresponding to clubs/interests and are prompted to select the ones that interest them. When a card is clicked, the club displays an “about us” video, and when a student is accepted, a little song plays. Users receive notifications when their club posts and for tryouts/auditions/meetings. Each club also has an “about us” section where they display important information such a calendar with schedules, meeting locations, etc.
 
+# Interactions
+
+The idea is the same one from milestone 1 so there is nothing new to do here.
+
 # User Interface
 
 ## User Log In Page
 
-<!-- ADD SCREENSHOTS TO THE IMAGES FOLDER -->
-
 ![image info](./images/loginwireframe.png)
-<!-- USER LOG IN SCREENSHOT HERE -->
-![image info](./images/SignInPage.png)
-![image info](./images/SignUpPage.png)
+![image info](./images/Sign_In_Page.png)
+![image info](./images/Sign_Up_Page.png)
 
 Self explanatory :)
 
@@ -50,9 +51,8 @@ This is the central hub each user is greeted with when they first log in. The si
 
 ![image info](./images/clubpagewireframe.png)
 ![image info](./images/Club%20Page%20screenshot.jpg)
-<!-- CLUB DASHBOARD SCREENSHOT HERE, also can someone describe what the questions are in the wireframe idk what they're for-->
 
-The club dashboard is the central hub for each club. Each club page contains an image and a video describing the club and introducing its leaders. Below that, there is a written description of the club with important information and a link to the club's calendar. There is also a button to apply to join the club.
+The club dashboard is the central hub for each club. Each club page contains an image and a video describing the club and introducing its leaders. Below that, there is a written description of the club with important information and a link to the club's calendar. There is also a button to apply to join the club with questions that the club can supply to get to know the people that are applying.
 
 ## Event Calendar
 
