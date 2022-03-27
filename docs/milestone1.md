@@ -33,6 +33,8 @@ Students create accounts with their Spire IDs to login. Once logged in, new user
 
 ![image info](./images/loginwireframe.png)
 <!-- USER LOG IN SCREENSHOT HERE -->
+![image info](./images/SignInPage.png)
+![image info](./images/SignUpPage.png)
 
 Self explanatory :)
 
