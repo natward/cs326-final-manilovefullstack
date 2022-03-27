@@ -13,6 +13,10 @@ OnlyClubs
 * Sebastian McKay (@Sebastian-McKayy)
 * Natalie Ward (@natward)
 
+# Division of Labor
+
+Catherine provided the wireframe for the central hub and coded the HTML/CSS for the Club Dashboard. Yuval created the other 3 wireframes and coded the HTML and CSS for the user log in page. Natalie coded the CSS/HTML for the event calendar. Sebastian coded the CSS/HTML for the main page/user dashboard. 
+
 # Innovative Idea
 
 Our idea is a website for student clubs, with categories of interest that can be easily joined. Students can petition to create new categories with enough interest, and popular categories can petition to register as RSOs. Each category will have discussion boards and areas to share related content (videos, pictures, audio). This idea relates to the existing Campus Pulse application in that we hope to improve it and make clubs more accessible to new people.
