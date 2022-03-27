@@ -39,7 +39,8 @@ Self explanatory :)
 ## User Dashboard
 
 ![image info](./images/mainpagewireframe.png)
-![image info](./images/"MainPage:UserDashboard Webpage Screenshot 2.png")
+![image info](./images/MainPageScreenshot.png)
+![image info](./images/MainPageScreenshot2.png)
 
 This is the central hub each user is greeted with when they first log in. The sidebar contains a list of clubs the user has joined, and a list of friends organized by club membership. In the center of the page is a feed containing recent posts from each club. The user can customize their feed to decide what they see.
 
