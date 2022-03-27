@@ -47,6 +47,7 @@ This is the central hub each user is greeted with when they first log in. The si
 ## Club Dashboard
 
 ![image info](./images/clubpagewireframe.png)
+![image info](./images/Club%20Page%20screenshot.jpg)
 <!-- CLUB DASHBOARD SCREENSHOT HERE, also can someone describe what the questions are in the wireframe idk what they're for-->
 
 The club dashboard is the central hub for each club. Each club page contains an image and a video describing the club and introducing its leaders. Below that, there is a written description of the club with important information and a link to the club's calendar. There is also a button to apply to join the club.
