@@ -7,6 +7,11 @@ app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
 
+// update format (only one club and one friend):
+// {
+//     "clubs": ...,
+//     "friends": ...
+// }
 app.post("/club-page", (req, res) => {
     const q = req.query;
     const ret = addField(q.user, q.pass, q.update);

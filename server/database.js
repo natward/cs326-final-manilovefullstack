@@ -15,7 +15,7 @@ function addField(user, pass, fields) {
         let accdata = dbdata["accounts"];
         for (const [key, value] of Object.entries(accdata[user])) {
             if (key in accdata[user] && key in fields)
-                accdata[user][key] = value;
+                accdata[user][key].append(value);
         }
         dbdata["accounts"] = accdata;
         if (!writeDB(dbdata))
