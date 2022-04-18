@@ -1,4 +1,4 @@
-// account object structure:
+// Account object structure:
 // "user": {
 //     "pass": ...,
 //     "clubs": ...,
@@ -75,6 +75,14 @@ function createNewAccount(user, pass) {
     return ret;
 }
 
+
+// Club object structure:
+// "club_name": {
+//     "event-list": ...,
+//     "presidents-name": ...,
+//     "club-image": ..., // in base-64
+// }
+
 function getClubInfo(club) {
     let dbdata = readDB();
     if (dbdata == undefined)
@@ -106,6 +114,8 @@ function createNewClub(club, fields) {
             return {"error": "Club creation unsuccessful", "code": -8};
     return ret;
 }
+
+// Database writing and reading functions
 
 function writeDB(db) {
     fs.writeFileSync('./db.json', JSON.stringify(db), (err) => {
