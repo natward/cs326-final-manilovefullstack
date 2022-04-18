@@ -31,6 +31,7 @@ app.post("/signin", (req, res) => {
         res.status(200).send(ret);
 });
 
+// webpage.com/signup?user=dsgasdg&pass=fadsgag
 app.post("/signup", (req, res) => {
     const q = req.query;
     const ret = createNewAccount(q.user, q.pass);
