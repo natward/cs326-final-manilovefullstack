@@ -7,12 +7,23 @@ app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
 
+// USER CONTENT //
+
+// Account object structure:
+// "user": {
+//     "pass": ...,
+//     "clubs": ...,
+//     "friends": ...
+// }
+
+//             //
+
 // update format (only one club and one friend):
 // {
 //     "clubs": ...,
 //     "friends": ...
 // }
-app.post("/club-page", (req, res) => {
+app.post("/add-field", (req, res) => {
     const q = req.query;
     const ret = addField(q.user, q.pass, q.update);
     if ("error" in ret)
@@ -39,4 +50,18 @@ app.post("/signup", (req, res) => {
         res.status(ret["code"]).json({"error": ret["error"]});
     else
         res.status(200).json(ret);
+});
+
+// CLUB CONTENT //
+
+// Club object structure:
+// "club_name": {
+//     "calendar": ...,
+//     "presidents-name": ...,
+//     "club-image": ..., // in base-64
+//     ""
+// }
+
+app.post("/add-club", (req, res) => {
+    
 });
