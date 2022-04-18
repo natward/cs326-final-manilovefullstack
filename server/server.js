@@ -14,7 +14,7 @@ app.listen(port, () => {
 // USER CONTENT //
 
 // Account object structure:
-// "user": {
+// user: {
 //     "pass": ...,
 //     "clubs": ...,
 //     "friends": ...
@@ -36,8 +36,8 @@ app.post("/add-field", (req, res) => {
         res.status(200).send(ret);
 });
 
-app.post("/get-fields", (req, res) => {
-    const q = req.body;
+app.get("/get-fields", (req, res) => {
+    const q = req.query;
     const ret = checkAccountLogin(q.user, q.pass);
     if ("error" in ret)
         res.status(ret["code"]).json({"error": ret["error"]});
@@ -67,7 +67,7 @@ app.post("/signup", (req, res) => {
 // CLUB CONTENT //
 
 // Club object structure:
-// "club_name": {
+// club_name: {
 //     "event-list": ...,
 //     "presidents-name": ...,
 //     "club-image": ..., // in base-64
@@ -87,8 +87,8 @@ app.post("/add-club", (req, res) => {
 // either empty obj ({})
 // or
 // full ({"event-list: ..., "presidents-name": ..., etc...})
-app.post("/get-club", (req, res) => {
-    const q = req.body;
+app.get("/get-club", (req, res) => {
+    const q = req.query;
     const ret = getClubInfo(q.club);
     if ("error" in ret)
         res.status(ret["code"]).json({"error": ret["error"]});
