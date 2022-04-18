@@ -35,7 +35,11 @@ function checkAccountLogin(user, pass) {
         if (user in dbdata) {
             const curruser = dbdata[user];
             if (pass == curruser["pass"]) {
-                ret = {"clubs": curruser["clubs"], "friends": curruser["friends"]};
+                ret = {}
+                for (const [key, value] of Object.entries(accdata[user])) {
+                    if (key != "pass")
+                        ret[key] = value;
+                }
             } else {
                 ret = {"error": "Incorrect Password", "code": -2};
             }
@@ -57,12 +61,10 @@ function createNewAccount(user, pass) {
         if (user in accdata)
             ret = {"error": "Username already registered", "code": -4}
         else {
-            accdata["accounts"] = {
-                user: {
-                    "pass": pass,
-                    "clubs": [],
-                    "friends": []
-                }
+            accdata[user] = {
+                "pass": pass,
+                "clubs": [],
+                "friends": []
             };
             dbdata["accounts"] = accdata;
             ret = {};
@@ -70,6 +72,38 @@ function createNewAccount(user, pass) {
                 return {"error": "Account creation unsuccessful", "code": -5};
         }
     }
+    return ret;
+}
+
+function getClubInfo(club) {
+    let dbdata = readDB();
+    if (dbdata == undefined)
+        return {"error": "Database not found", "code": -1};
+
+    if (club in dbdata["clubs"])
+        return dbdata["clubs"][club]
+    else
+        return {}
+}
+
+function createNewClub(club, fields) {
+    let dbdata = readDB();
+    if (dbdata == undefined)
+        return {"error": "Database not found", "code": -1};
+
+    let clubdata = dbdata["clubs"];
+    if (club in clubdata) {
+        ret = {"error": "Club name already in use", "code": -7}
+    } else {
+        clubdata[user] = {};
+        for (const [key, value] of Object.entries(fields)) {
+            clubdata[user][key].append(value);
+        }
+        ret = {};
+    }
+    dbdata["clubs"] = clubdata;
+    if (!writeDB(dbdata))
+            return {"error": "Club creation unsuccessful", "code": -8};
     return ret;
 }
 
@@ -89,7 +123,14 @@ function readDB() {
             data = JSON.parse(content);
         }
     });
+
+    if (!("accounts" in data)) {
+        data["accounts"] = {};
+    } else if (!("clubs" in data)){
+        data["clubs"] = {};
+    }
+
     return data;
 }
 
-export { checkAccountLogin, createNewAccount, addField };
+export { checkAccountLogin, createNewAccount, addField, createNewClub, getClubInfo };
