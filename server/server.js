@@ -22,7 +22,7 @@ app.listen(port, () => {
 
 //             //
 
-// update format (only one club and one friend):
+// post request body format (only one club and one friend):
 // {
 //     "clubs": ...,
 //     "friends": ...
@@ -36,8 +36,13 @@ app.post("/add-field", (req, res) => {
         res.status(200).send(ret);
 });
 
-app.get("/get-fields", (req, res) => {
-    const q = req.query;
+// Post request body format:
+// {
+//     "user": ...,
+//     "pass": ...
+// }
+app.post("/get-fields", (req, res) => {
+    const q = req.body;
     const ret = checkAccountLogin(q.user, q.pass);
     if ("error" in ret)
         res.status(ret["code"]).json({"error": ret["error"]});
@@ -46,6 +51,11 @@ app.get("/get-fields", (req, res) => {
 });
 
 // https://stackoverflow.com/questions/54048193/read-value-from-json-file-using-node-js
+// Post request body format:
+// {
+//     "user": ...,
+//     "pass": ...
+// }
 app.post("/signin", (req, res) => {
     const q = req.body;
     const ret = checkAccountLogin(q.user, q.pass);
@@ -55,6 +65,11 @@ app.post("/signin", (req, res) => {
         res.status(200).send(ret);
 });
 
+// Post request body format:
+// {
+//     "user": ...,
+//     "pass": ...
+// }
 app.post("/signup", (req, res) => {
     const q = req.body;
     const ret = createNewAccount(q.user, q.pass);
@@ -74,6 +89,16 @@ app.post("/signup", (req, res) => {
 //     ""
 // }
 
+
+// Post request body format:
+// {
+//     "club": ...,
+//     "fields": {
+//         "event-list": ...,
+//         "presidents-name": ...,
+//         "club-image": ...
+//     }
+// }
 app.post("/add-club", (req, res) => {
     const q = req.body;
     const ret = createNewClub(q.club, q.fields);

@@ -12,5 +12,25 @@ signup_bttn.addEventListener("click", (e) => {
     console.log(spireid);
     console.log(password);
 
+    let res = await fetch("milfs.com/signup", {
+        method: "post",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        redirect: 'follow',
+        body: JSON.stringify({
+            "user": spireid,
+            "pass": password
+        })
+    });
+    res = res.json();
+    if ("error" in res)
+        alert(`${res["error"]}`)
+    else {
+        localStorage.setItem("user", spireid);
+        localStorage.setItem("pass", password);
+    }
+
     location.href = "./TitlePage.html";
 });
