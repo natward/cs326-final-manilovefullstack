@@ -1,3 +1,5 @@
+import fs from "fs"
+
 // Account object structure:
 // "user": {
 //     "pass": ...,
@@ -14,12 +16,14 @@ function addField(user, pass, fields) {
 
         let accdata = dbdata["accounts"];
         for (const [key, value] of Object.entries(accdata[user])) {
-            if (key in accdata[user] && key in fields)
-                accdata[user][key].append(value);
+            if (key in accdata[user] && key in fields) {
+                if (key != "pass")
+                    accdata[user][key].push(fields[key]);
+            }
         }
         dbdata["accounts"] = accdata;
         if (!writeDB(dbdata))
-                return {"error": "Account update unsuccessful", "code": -6};
+                return {"error": "Account update unsuccessful", "statuscode": -6};
     }
     return {};
 }
@@ -29,11 +33,11 @@ function checkAccountLogin(user, pass) {
     let ret = undefined;
 
     if (dbdata == undefined)
-        ret = {"error": "Database not found", "code": -1};
+        ret = {"error": "Database not found", "statuscode": -1};
     else {
-        let dbdata = dbdata["accounts"];
-        if (user in dbdata) {
-            const curruser = dbdata[user];
+        let accdata = dbdata["accounts"];
+        if (user in accdata) {
+            const curruser = accdata[user];
             if (pass == curruser["pass"]) {
                 ret = {}
                 for (const [key, value] of Object.entries(accdata[user])) {
@@ -41,10 +45,10 @@ function checkAccountLogin(user, pass) {
                         ret[key] = value;
                 }
             } else {
-                ret = {"error": "Incorrect Password", "code": -2};
+                ret = {"error": "Incorrect Password", "statuscode": -2};
             }
         } else {
-            ret = {"error": "Username not found", "code": -3};
+            ret = {"error": "Username not found", "statuscode": -3};
         }
     }
     return ret;
@@ -55,11 +59,11 @@ function createNewAccount(user, pass) {
     let ret = undefined;
 
     if (dbdata == undefined)
-        ret = {"error": "Database not found", "code": -1};
+        ret = {"error": "Database not found", "statuscode": -1};
     else {
         let accdata = dbdata["accounts"];
         if (user in accdata)
-            ret = {"error": "Username already registered", "code": -4}
+            ret = {"error": "Username already registered", "statuscode": -4}
         else {
             accdata[user] = {
                 "pass": pass,
@@ -69,7 +73,7 @@ function createNewAccount(user, pass) {
             dbdata["accounts"] = accdata;
             ret = {};
             if (!writeDB(dbdata))
-                return {"error": "Account creation unsuccessful", "code": -5};
+                return {"error": "Account creation unsuccessful", "statuscode": -5};
         }
     }
     return ret;
@@ -83,10 +87,15 @@ function createNewAccount(user, pass) {
 //     "club-image": ..., // in base-64
 // }
 
+// event-list format:
+// [
+//     {"event": ..., "date": ..., "time": ..., "location": ..., "description": ...}
+// ]
+
 function getClubInfo(club) {
     let dbdata = readDB();
     if (dbdata == undefined)
-        return {"error": "Database not found", "code": -1};
+        return {"error": "Database not found", "statuscode": -1};
 
     if (club in dbdata["clubs"])
         return dbdata["clubs"][club]
@@ -96,22 +105,23 @@ function getClubInfo(club) {
 
 function createNewClub(club, fields) {
     let dbdata = readDB();
+    let ret = undefined;
     if (dbdata == undefined)
-        return {"error": "Database not found", "code": -1};
+        return {"error": "Database not found", "statuscode": -1};
 
     let clubdata = dbdata["clubs"];
     if (club in clubdata) {
-        ret = {"error": "Club name already in use", "code": -7}
+        ret = {"error": "Club name already in use", "statuscode": -7}
     } else {
-        clubdata[user] = {};
+        clubdata[club] = {};
         for (const [key, value] of Object.entries(fields)) {
-            clubdata[user][key].append(value);
+            clubdata[club][key] = value;
         }
         ret = {};
     }
     dbdata["clubs"] = clubdata;
     if (!writeDB(dbdata))
-            return {"error": "Club creation unsuccessful", "code": -8};
+            return {"error": "Club creation unsuccessful", "statuscode": -8};
     return ret;
 }
 
@@ -125,14 +135,15 @@ function writeDB(db) {
 }
 
 function readDB() {
-    const data = undefined;
-    fs.readFileSync('./db.json', 'utf8', (err, content) => {
+    let data = undefined;
+    data = JSON.parse(fs.readFileSync('./db.json', 'utf8', (err, content) => {
         if (err) {
             return data;
-        } else {
-            data = JSON.parse(content);
         }
-    });
+    }));
+
+    if (data == undefined)
+        data = {}
 
     if (!("accounts" in data)) {
         data["accounts"] = {};

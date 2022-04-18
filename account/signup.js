@@ -12,7 +12,7 @@ signup_bttn.addEventListener("click", (e) => {
     console.log(spireid);
     console.log(password);
 
-    let res = await fetch("milfs.com/signup", {
+    let res = await fetch("http://localhost:5050/signup", {
         method: "post",
         headers: {
             'Accept': 'application/json',
@@ -28,6 +28,7 @@ signup_bttn.addEventListener("click", (e) => {
     if ("error" in res)
         alert(`${res["error"]}`)
     else {
+        localStorage.setItem("accset", true);
         localStorage.setItem("user", spireid);
         localStorage.setItem("pass", password);
     }
