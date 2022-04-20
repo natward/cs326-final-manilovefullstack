@@ -5,19 +5,19 @@
 }
 
 #account-pic{
-    width:5%;
+    width:6%;
 }
 
 #main-div{
-    width:76%;
+    width:90%;
     margin-left:2%;
     margin-right:2%;
 }
 
-#side-div{
+/* #side-div{
     width:12%;
     margin-right:3%;
-}
+} */
 
 #title{
     display:flex;
