@@ -10,7 +10,10 @@ import * as crud from './crud.js';
 
 // clubName = response.clubName 
 
-const clubName = "dummy variable";
+
+const currentURL = window.location.href;
+const params = new URLSearchParams(currentURL);
+const clubName = params.get('club');
 
 // inject clubname and picture + video
 
