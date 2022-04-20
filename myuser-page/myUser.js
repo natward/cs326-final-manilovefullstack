@@ -27,6 +27,8 @@ async function init(){
     }   
 }
 
+init();
+
 for(let i=0; i< response['clubs'].length; i++){
     const newListElement= document.createElement("li");
     newListElement.setAttribute("id",response['clubs'][i]);
@@ -37,6 +39,7 @@ for(let i=0; i< response['clubs'].length; i++){
     specificClub.addEventListener("click", async (e)=> {
         const urlClub = new URL("milfs.com/get-club");
         urlClub.searchParams.append("club", specificClub);
+        urlClub.searchParams.append("red", true);
         let responseClub = await fetch(urlClub, { method: 'GET', redirect: 'follow' });
     });
 }
