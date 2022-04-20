@@ -1,0 +1,42 @@
+#flex-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#title-div{
+    width:100%;
+}
+
+#clubs-container{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 49%;
+    height: 100%;
+    border-color: black;
+    border-width: 1%;
+    border-style: solid;
+    
+}
+
+#friends-container{
+    display:block;
+    justify-content: center;
+    align-items: center;
+    width: 49%;
+    height: 100%;
+    border-color: black;
+    border-style: solid;
+}
+
+#title{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding-top:3.5%;
+    color: blue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: skyblue;
+}
+
+
