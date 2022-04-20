@@ -34,7 +34,7 @@ for(let i=0; i< response['clubs'].length; i++){
     const specificClub = document.getElementById(response['clubs'][i]);
     specificClub.innerHTML = response['clubs'][i];
     specificClub.addEventListener("click", (e)=> {
-        console.log();
+        window.location.href = ("../club-page/club-page.html");
     });
 }
 for(let i=0; i< response['friends'].length; i++){
