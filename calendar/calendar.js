@@ -20,7 +20,7 @@ const currentURL = window.location.href;
 const params = new URLSearchParams(currentURL);
 const clubName = params.get('club');
 
-const response = await getClubUrl(clubName);
+const response = await getClubObject(clubName);
 // response:
 // {club_events: [], event_date: [], event_time: [], event_location: [], event_descs: []}
 
@@ -46,7 +46,7 @@ async function getClubObject(clubName){
     const url = new URL('milfs.com/get-events');
 
     myUrlWithParams.searchParams.append('club', clubName);
-    myUrlWithParams.searchParams.append('red', true);
+    myUrlWithParams.searchParams.append('red', false);
 
     const response = await fetch(url, {
         method: 'GET',
