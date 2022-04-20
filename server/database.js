@@ -1,5 +1,6 @@
 import fs from "fs"
 
+
 // Account object structure:
 // "user": {
 //     "pass": ...,
@@ -81,10 +82,13 @@ function createNewAccount(user, pass) {
 
 
 // Club object structure:
-// "club_name": {
-//     "event-list": ...,
+// club name: {
+//     "event-list": {...},
 //     "presidents-name": ...,
-//     "club-image": ..., // in base-64
+//     "club-description": ...,
+//     "club-image": ...,
+//     "club-video": ...,
+//     "club-applications": [...]
 // }
 
 // event-list format:
@@ -125,6 +129,36 @@ function createNewClub(club, fields) {
     return ret;
 }
 
+function getClubNames() {
+    let dbdata = readDB();
+    if (dbdata == undefined)
+        return {"error": "Database not found", "statuscode": -1};
+
+    const ret = {"club_names": [], "club_descs": []};
+    for (const [club, clubdata] of Object.entries(dbdata["clubs"])) {
+        ret["club_names"].push(club);
+        ret["club_descs"].push(clubdata["club-description"]);
+    }
+    return ret;
+}
+
+function applyToClub(club, user) {
+    let dbdata = readDB();
+    if (dbdata == undefined)
+        return {"error": "Database not found", "statuscode": -1};
+
+    if (club in getClubNames()) {
+        dbdata["clubs"][club]["club-applications"].append(user);
+
+        if (!writeDB(dbdata))
+            return {"error": "Write unsuccessful", "statuscode": -10};
+    } else {
+        return {"error": "Invalid Club Application", "statuscode": -9};
+    }
+
+    return {};
+}
+
 // Database writing and reading functions
 
 function writeDB(db) {
@@ -154,4 +188,4 @@ function readDB() {
     return data;
 }
 
-export { checkAccountLogin, createNewAccount, addField, createNewClub, getClubInfo };
+export { checkAccountLogin, createNewAccount, addField, createNewClub, getClubInfo, getClubNames, applyToClub };

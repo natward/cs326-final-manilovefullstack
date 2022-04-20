@@ -1,4 +1,4 @@
-import { checkAccountLogin, createNewAccount, addField, createNewClub, getClubInfo } from "./database.js"
+import { checkAccountLogin, createNewAccount, addField, createNewClub, getClubInfo, getClubNames, applyToClub } from "./database.js"
 import express from 'express'
 import bodyParser from "body-parser"
 import cors from "cors"
@@ -7,6 +7,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const port = 5050;
+const url = "http://milfs.com/"
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
@@ -66,6 +67,20 @@ app.post("/signin", (req, res) => {
         res.status(200).send(ret);
 });
 
+app.post("/apply", (req, res) => {
+    const q = req.body;
+    let ret = checkAccountLogin(q.user, q.pass);
+    if ("error" in ret)
+        res.status(501).json({"error": ret["error"]});
+    else {
+        ret = applyToClub(q.club, q.user);
+        if ("error" in ret)
+            res.status(501).json({"error": ret["error"]});
+        else
+            res.status(200).send(ret);
+    }
+});
+
 // Post request body format:
 // {
 //     "user": ...,
@@ -116,6 +131,21 @@ app.post("/add-club", (req, res) => {
 app.get("/get-club", (req, res) => {
     const q = req.query;
     const ret = getClubInfo(q.club);
+    if ("error" in ret)
+        res.status(501).json({"error": ret["error"]});
+    else {
+        if (q.redirect) {
+            let redirurl = new URL(url+"calendar.html");
+            redirurl.searchParams.append("club", q.club);
+            res.redirect(redirurl.url);
+        } else
+            res.status(200).json(ret);
+    }
+});
+
+app.get("/all-clubs", (req, res) => {
+    const q = req.query;
+    const ret = getClubNames();
     if ("error" in ret)
         res.status(501).json({"error": ret["error"]});
     else
