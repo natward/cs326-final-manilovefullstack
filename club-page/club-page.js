@@ -14,9 +14,9 @@ const clubName = "dummy variable";
 
 // inject clubname and picture + video
 
-    const url = new URL("milfs.com/get-club");
+    // const url = new URL("milfs.com/get-club");
 
-    myUrlWithParams.searchParams.append("club", clubName);
+    // myUrlWithParams.searchParams.append("club", clubName);
 
     // let response = await fetch(url, {
     //     method: 'GET'
@@ -24,7 +24,7 @@ const clubName = "dummy variable";
 
     // response = await response.json();
 
-const response = await crud.getUrl(url);
+const response = await crud.getClubUrl(clubName);
 // picture and vid wil be urls to the image/vid
 if(response["club-image"] === undefined ){
     const pictureUrl = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.beamliving.com%2Fstories%2Ffunny-2021-memes&psig=AOvVaw2NVTobAEeszJ7jwlMvX1mP&ust=1650500485036000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJj8pM2vofcCFQAAAAAdAAAAABAQ";
@@ -82,15 +82,6 @@ pageMedia.appendChild(video);
 
 
 
-
-// let response = await fetch(url);
-// if(response.ok){ // if HTTP status is 200 or 299
-//     let json = await response.json();
-
-// } else {
-//     alert("HTTP Error: " + response.status);
-// }
-
 const applyButton = document.getElementById("apply");
 
 applyButton.addEventListener('click',  async (e) => {
@@ -100,5 +91,16 @@ applyButton.addEventListener('click',  async (e) => {
 
     // need to set it to a variable?
     await crud.submitApplication(name, grade, experience);
+
+    // reset form
+    document.getElementById('apply-name').value = "";
+    document.getElementById('apply-grade').value = "";
+    document.getElementById('apply-experience').value = "";
+});
+
+const eventButton = document.getElementById("events");
+
+eventButton.addEventListener('click',  async (e) => {
+    await crud.goToEvents(clubName);
 });
 
