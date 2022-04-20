@@ -1,13 +1,13 @@
 import { checkAccountLogin, createNewAccount, addField, createNewClub, getClubInfo, getClubNames, applyToClub } from "./database.js"
 import express from 'express'
 import bodyParser from "body-parser"
-import cors from "cors"
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use("/client", express.static('client'));
 const port = 5050;
-const url = "http://milfs.com/"
+const url = "http://milfs.com/";
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
@@ -134,7 +134,7 @@ app.get("/get-club", (req, res) => {
     if ("error" in ret)
         res.status(501).json({"error": ret["error"]});
     else {
-        if (q.redirect) {
+        if (q.red) {
             let redirurl = new URL(url+"club-page.html");
             redirurl.searchParams.append("club", q.club);
             res.redirect(redirurl.url);
@@ -149,10 +149,10 @@ app.get("/get-events", (req, res) => {
     if ("error" in ret)
         res.status(501).json({"error": ret["error"]});
     else {
-        if (q.redirect) {
-            let redirurl = new URL(url+"calendar.html");
+        if (q.red) {
+            let red = new URL(url+"calendar.html");
             redirurl.searchParams.append("club", q.club);
-            res.redirect(redirurl.url);
+            res.redirect(red);
         } else
             res.status(200).json(ret);
     }
