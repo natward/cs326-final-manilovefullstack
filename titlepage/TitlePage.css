@@ -25,6 +25,7 @@
     align-items: center;
     padding-top:3.5%;
     color: red;
+    font-weight: bold;
 }
 
 .sub-title{
@@ -91,4 +92,9 @@
     justify-content: center;
     white-space: nowrap;
     font-size: 85%;
+}
+
+#span{
+    color:hotpink;
+    font-family: "Brush Script MT", cursive;
 }
