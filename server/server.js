@@ -135,6 +135,21 @@ app.get("/get-club", (req, res) => {
         res.status(501).json({"error": ret["error"]});
     else {
         if (q.redirect) {
+            let redirurl = new URL(url+"club-page.html");
+            redirurl.searchParams.append("club", q.club);
+            res.redirect(redirurl.url);
+        } else
+            res.status(200).json(ret);
+    }
+});
+
+app.get("/get-events", (req, res) => {
+    const q = req.query;
+    const ret = getClubInfo(q.club);
+    if ("error" in ret)
+        res.status(501).json({"error": ret["error"]});
+    else {
+        if (q.redirect) {
             let redirurl = new URL(url+"calendar.html");
             redirurl.searchParams.append("club", q.club);
             res.redirect(redirurl.url);
