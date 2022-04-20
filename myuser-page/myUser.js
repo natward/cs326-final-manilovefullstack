@@ -30,6 +30,7 @@ const response = {
 for(let i=0; i< response['clubs'].length; i++){
     const newListElement= document.createElement("li");
     newListElement.setAttribute("id",response['clubs'][i]);
+    newListElement.setAttribute("class","clubsAndFriends");
     clubs.appendChild(newListElement);
     const specificClub = document.getElementById(response['clubs'][i]);
     specificClub.innerHTML = response['clubs'][i];
@@ -40,6 +41,7 @@ for(let i=0; i< response['clubs'].length; i++){
 for(let i=0; i< response['friends'].length; i++){
     const newListElement= document.createElement("li");
     newListElement.setAttribute("id",response['friends'][i]);
+    newListElement.setAttribute("class","clubsAndFriends");
     friends.appendChild(newListElement);
     const specificFriend = document.getElementById(response['friends'][i]);
     specificFriend.innerHTML = response['friends'][i];

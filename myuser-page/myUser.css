@@ -3,6 +3,7 @@
     flex-wrap: wrap;
 }
 
+
 #title-div{
     width:100%;
 }
@@ -39,4 +40,21 @@
     background-color: skyblue;
 }
 
+.clubsAndFriends{
+    font-size: 150%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: dodgerblue;
+    text-transform: uppercase;
+}
+
+#club-title{
+    text-decoration: underline;
+    color: midnightblue;
+}
+
+#friend-title{
+    text-decoration: underline;
+    color: midnightblue;
+}
 
