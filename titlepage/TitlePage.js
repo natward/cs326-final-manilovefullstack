@@ -3,7 +3,6 @@ const URL = "milfs.com/";
 
 // const club_bttn = document.getElementsByClassName("club");
 const hyperlink = document.getElementById("signin-signup-myuser");
-const data = { user: 'example', pass: 'password' };
 
 if(localStorage.getItem("accset") === null){
   hyperlink.innerHTML = "Sign-up/Sign-in"
