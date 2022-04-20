@@ -166,3 +166,17 @@ app.get("/all-clubs", (req, res) => {
     else
         res.status(200).json(ret);
 });
+
+// CLUB CONTENT //
+
+// Club object structure:
+// "club_name": {
+//     "calendar": ...,
+//     "presidents-name": ...,
+//     "club-image": ..., // in base-64
+//     ""
+// }
+
+app.post("/add-club", (req, res) => {
+    
+});
