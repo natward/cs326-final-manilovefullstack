@@ -48,13 +48,17 @@
     text-transform: uppercase;
 }
 
-#club-title{
+.clubsAndFriends:hover{
     text-decoration: underline;
+}
+
+#club-title{
     color: midnightblue;
+    border: solid;
 }
 
 #friend-title{
-    text-decoration: underline;
     color: midnightblue;
+    border: solid;
 }
 
