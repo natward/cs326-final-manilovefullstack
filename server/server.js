@@ -166,3 +166,11 @@ app.get("/all-clubs", (req, res) => {
     else
         res.status(200).json(ret);
 });
+
+app.get('/', (req, res) => {
+    res.render('client/index.html');
+})
+
+app.get('*', (req, res) => {
+    res.redirect('/');
+})
