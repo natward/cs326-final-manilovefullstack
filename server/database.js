@@ -2,7 +2,7 @@ import fs from "fs"
 
 
 // Account object structure:
-// username {
+// username: {
 //     "pass": ...,
 //     "clubs": ...,
 //     "friends": ...
@@ -160,6 +160,7 @@ function applyToClub(club, user) {
 }
 
 // Database writing and reading functions
+
 function writeDB(db) {
     fs.writeFileSync('./db.json', JSON.stringify(db), (err) => {
         return false;
