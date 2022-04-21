@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('./client'));
 const port = 5050;
-const url = "http://https://only-clubs.herokuapp.com/";
+const url = "https://only-clubs.herokuapp.com/";
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
