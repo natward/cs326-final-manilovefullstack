@@ -9,8 +9,18 @@ app.use(express.static('./client'));
 const port = 5050;
 const url = "https://only-clubs.herokuapp.com/";
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Server started on port ${port}`);
+});
+
+app.get("/", (req,res)=> {
+    res.redirect("/client/index.html");
+});
+
+app.use(function(req,res,next){
+    let errorMessage = new Error("error: not working");
+    errorMessage.status = 404;
+    next(errorMessage);
 });
 
 // USER CONTENT //
