@@ -47,14 +47,14 @@ Catherine:
 Set up the club page such that the club data can be injected into the page when you access it.  Coded the Events and Apply buttons on the club page to go to the Events list page, and to send the user’s data to the server when clicked. Wrote descriptions for API endpoints.
 
 
-Sebastian Tyler McKay:
+Sebastian McKay:
 Changed the title page to be cosmetic only and to be a portal to the signin/signup page and the user dashboard. Created the userDashboard page dynamically from server requests that generates the clubs a user belongs and displays it onto the page. Attempted valiantly to deploy heroku but to no avail no matter what method used heroku never connected to the GitHub.
 
 Yuval valiantly made all of the express endpoints, all of the database helper functions, and tested all of them using postman on his local machine. He also implemented the signin.html and signup.html pages and merged everyone’s development branches together at the end.
 
-# Page
+# Club Page
 
-![image info](./images_milestone2/loginwireframe.png)
+![image info](./images_milestone2/clubpage.png)
 
 # Sign Up Page
 
