@@ -1,0 +1,62 @@
+#logo {
+    color: crimson;
+    font: bold;
+    text-align: center;
+}
+
+#club-name {
+    font-size: 180%;
+    font: bold;
+    text-align: left;
+    margin-left: 3%;
+}
+
+.left {
+    margin-left: 3%;
+    text-align: center;
+}
+
+.right {
+    margin-right: 3%;    
+    padding-left: 3%;
+    text-align: center;
+}
+
+#dog-pic {
+    width: 40%;
+    height: auto;
+}
+
+#dog-vid {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 60%
+}
+#media{
+    display: flex;
+    flex-direction: row;
+}
+
+#club-description {
+    float: left;
+    width: 20%;
+    font: x-large;
+    text-align: center;
+    margin-top: 3%;
+    padding: 10%;
+    border: solid black;
+
+}
+
+#apply-form{
+    margin: 5%;
+    margin-right: 20%;
+    text-align: right;
+}
+
+#apply-button{
+    margin-top: 10%;
+}
+
+
+/* style apply button to purple w white font */
