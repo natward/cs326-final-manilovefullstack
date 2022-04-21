@@ -147,8 +147,21 @@ function applyToClub(club, user) {
     if (dbdata == undefined)
         return {"error": "Database not found", "statuscode": -1};
 
-    if (club in getClubNames()) {
-        dbdata["clubs"][club]["club-applications"].append(user);
+    const cnames = getClubNames()["club_names"].filter(x => x == club);
+    if (cnames.length > 0) {
+        if (!("club-applications" in dbdata["clubs"][club]))
+            dbdata["clubs"][club]["club-applications"] = [];
+        
+        const capps = dbdata["clubs"][club]["club-applications"].filter(x => x == user);
+        if (capps.length == 0)
+            dbdata["clubs"][club]["club-applications"].push(user);
+
+        if (!("clubs" in dbdata["accounts"][user]))
+            dbdata["accounts"][user]["clubs"] = [];
+
+        const uapps = dbdata["accounts"][user]["clubs"].filter(x => x == club);
+        if (uapps.length == 0)
+            dbdata["accounts"][user]["clubs"].push(club);
 
         if (!writeDB(dbdata))
             return {"error": "Write unsuccessful", "statuscode": -10};
@@ -181,7 +194,8 @@ function readDB() {
 
     if (!("accounts" in data)) {
         data["accounts"] = {};
-    } else if (!("clubs" in data)){
+    }
+    if (!("clubs" in data)){
         data["clubs"] = {};
     }
 

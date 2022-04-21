@@ -5,7 +5,7 @@ import bodyParser from "body-parser"
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use("/client", express.static('client'));
+app.use(express.static('./client'));
 const port = 5050;
 const url = "http://milfs.com/";
 
@@ -166,11 +166,3 @@ app.get("/all-clubs", (req, res) => {
     else
         res.status(200).json(ret);
 });
-
-app.get('/', (req, res) => {
-    res.render('client/index.html');
-})
-
-app.get('*', (req, res) => {
-    res.redirect('/');
-})
