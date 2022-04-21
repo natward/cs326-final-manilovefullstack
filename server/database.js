@@ -160,7 +160,6 @@ function applyToClub(club, user) {
 }
 
 // Database writing and reading functions
-
 function writeDB(db) {
     fs.writeFileSync('./db.json', JSON.stringify(db), (err) => {
         return false;

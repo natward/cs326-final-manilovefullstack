@@ -32,6 +32,5 @@ signup_bttn.addEventListener("click", (e) => {
         localStorage.setItem("user", spireid);
         localStorage.setItem("pass", password);
     }
-
     location.href = "./TitlePage.html";
 });
