@@ -2,7 +2,7 @@ import fs from "fs"
 
 
 // Account object structure:
-// "user": {
+// username {
 //     "pass": ...,
 //     "clubs": ...,
 //     "friends": ...
