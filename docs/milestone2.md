@@ -51,3 +51,19 @@ Sebastian Tyler McKay:
 Changed the title page to be cosmetic only and to be a portal to the signin/signup page and the user dashboard. Created the userDashboard page dynamically from server requests that generates the clubs a user belongs and displays it onto the page. Attempted valiantly to deploy heroku but to no avail no matter what method used heroku never connected to the GitHub.
 
 Yuval valiantly made all of the express endpoints, all of the database helper functions, and tested all of them using postman on his local machine. He also implemented the signin.html and signup.html pages and merged everyone’s development branches together at the end.
+
+# Page
+
+![image info](./images_milestone2/loginwireframe.png)
+
+# Sign Up Page
+
+![image info](./images_milestone2/signup.png)
+
+# Sign In Page
+
+![image info](./images_milestone2/signin.png)
+
+# Title Page
+
+![image info](./images_milestone2/titlepage.png)
