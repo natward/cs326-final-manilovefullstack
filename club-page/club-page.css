@@ -50,10 +50,13 @@
 
 #apply-form{
     margin: 5%;
+    margin-right: 20%;
+    text-align: right;
 }
 
 #apply-button{
-    margin-top: 3%;
+    margin-top: 10%;
 }
+
 
 /* style apply button to purple w white font */
