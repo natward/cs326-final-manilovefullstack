@@ -1,31 +1,10 @@
-// import???
 import * as crud from './crud.js';
-
-
-
-// apply button == fetch request of type post, sending data
-// body == json obj you send to server
-
-// event button == get request --> in header/query of the fetch request --> will send the club name
-
-// clubName = response.clubName 
 
 
 const currentURL = window.location.href;
 const params = new URLSearchParams(currentURL);
 const clubName = params.get('club');
 
-// inject clubname and picture + video
-
-    // const url = new URL("milfs.com/get-club");
-
-    // myUrlWithParams.searchParams.append("club", clubName);
-
-    // let response = await fetch(url, {
-    //     method: 'GET'
-    // });
-
-    // response = await response.json();
 
 const response = await crud.getClubUrl(clubName);
 // picture and vid wil be urls to the image/vid

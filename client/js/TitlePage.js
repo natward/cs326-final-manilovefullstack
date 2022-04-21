@@ -1,5 +1,5 @@
 // change me
-const URL = "milfs.com/";
+const URL = "https://only-clubs.herokuapp.com";
 
 // const club_bttn = document.getElementsByClassName("club");
 const hyperlink = document.getElementById("signin-signup-myuser");
@@ -18,7 +18,7 @@ else{
 
 
 // club_bttn.addEventListener("click", async (e) => {
-//   let res = await fetch('https://milfs.com/get-fields', {
+//   let res = await fetch('https://https://only-clubs.herokuapp.com/get-fields', {
 //     method: 'POST', 
 //     headers: {
 //       'Content-Type': 'application/json',

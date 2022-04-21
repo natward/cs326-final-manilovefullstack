@@ -10,10 +10,10 @@ const friends = document.getElementById("friends-list");
 //     "friends": ["cap","doodlebob"]
 // }
 // ADD THIS BACK IN LATER
-const url = new URL("milfs.com/get-fields");
+const url = new URL("https://only-clubs.herokuapp.com/get-fields");
 async function init(){
     if(localStorage.getItem("accset") === null){
-        location.href="milfs.com/signin.html"
+        location.href="https://only-clubs.herokuapp.com/signin.html"
     }
     else{
         let response = await fetch(url, {
@@ -37,7 +37,7 @@ for(let i=0; i< response['clubs'].length; i++){
     const specificClub = document.getElementById(response['clubs'][i]);
     specificClub.innerHTML = response['clubs'][i];
     specificClub.addEventListener("click", async (e)=> {
-        const urlClub = new URL("milfs.com/get-club");
+        const urlClub = new URL("https://only-clubs.herokuapp.com/get-club");
         urlClub.searchParams.append("club", specificClub);
         urlClub.searchParams.append("red", true);
         let responseClub = await fetch(urlClub, { method: 'GET', redirect: 'follow' });

@@ -29,7 +29,7 @@ async function goToClubPage() {
             return str === nameToFind;
         }
     );
-    const url = new URL("milfs.com/get-club");
+    const url = new URL("https://only-clubs.herokuapp.com/get-club");
 
     myUrlWithParams.searchParams.append('club', name);
     myUrlWithParams.searchParams.append('red', true);
@@ -41,7 +41,7 @@ async function goToClubPage() {
 }
 
 async function getClubList() {
-    const url = new URL('milfs.com/all-clubs');
+    const url = new URL('https://only-clubs.herokuapp.com/all-clubs');
 
     const response = await fetch(url, {
         method: 'GET',

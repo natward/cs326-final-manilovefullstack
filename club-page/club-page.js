@@ -17,7 +17,7 @@ const clubName = params.get('club');
 
 // inject clubname and picture + video
 
-    // const url = new URL("milfs.com/get-club");
+    // const url = new URL("https://only-clubs.herokuapp.com/get-club");
 
     // myUrlWithParams.searchParams.append("club", clubName);
 

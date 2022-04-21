@@ -1,6 +1,6 @@
 const signin_bttn = document.getElementById("signin");
 const signup_bttn = document.getElementById("signup");
-const url = "milfs.com";
+const url = "https://only-clubs.herokuapp.com";
 
 
 signin_bttn.addEventListener("click", (e) => {
