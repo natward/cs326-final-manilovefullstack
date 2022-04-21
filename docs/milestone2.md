@@ -23,6 +23,7 @@ A brief and precise representation of APIs for you application
 
 At least one set of four screenshots of your client interface with descriptions
 The URL of your Heroku Application
+https://only-clubs.herokuapp.com
 
 
 
@@ -40,7 +41,7 @@ The URL of your Heroku Application
 Division of Labor Breakdown:
 
 Natalie:
-Updated the calendar structure to an event list, created the club list page, and implemented functions to dynamically render the database entries from server requests. Implemented server communications for both the calendar and club list pages. Valiantly attempted to deploy to Heroku :(
+Updated the calendar structure to an event list, created the club list page, and implemented functions to dynamically render the database entries from server requests. Implemented server communications for both the calendar and club list pages. Valiantly deployed to Heroku but encountered an error.
 
 
 Catherine: 
