@@ -1,15 +1,24 @@
 import { checkAccountLogin, createNewAccount, addField, createNewClub, getClubInfo, getClubNames, applyToClub } from "./database.js"
-import express from 'express'
-import bodyParser from "body-parser"
+import express from 'express';
+// import logger from 'morgan';
+import bodyParser from "body-parser";
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(express.static('./client'));
-const port = 5050;
-const url = "http://milfs.com/";
 
-app.listen(port, () => {
+app.get('/', (req, res) => res.redirect('./index.html'));
+
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+
+// app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
+app.use('/client', express.static('client'));
+const port = 3000;
+
+app.listen(process.env.PORT || port, () => {
+// app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
 
