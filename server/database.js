@@ -1,4 +1,3 @@
-import fs from "fs"
 import "dotenv/config"
 import { MongoClient, ServerApiVersion } from 'mongodb';
 
@@ -8,7 +7,7 @@ class MongoDatabase {
       this.client = undefined;
       this.db = undefined;
     }
-  
+
     async connect() {
       console.log(this.uri);
       this.client = await MongoClient.connect(this.uri, {
@@ -19,14 +18,14 @@ class MongoDatabase {
     
       this.db = this.client.db('database');
     }
-  
+
     close() {
-      this.client.close();
+        this.client.close();
     }
-  }
-  
-  const DB = new MongoDatabase();
-  await DB.connect();
+}
+
+const DB = new MongoDatabase();
+await DB.connect();
 
 // TODO: Refactor this code so that it works with MONGODB: change to querying database
 
@@ -143,7 +142,7 @@ async function updateClub(club, fields) {
 
 async function getClubNames() {
     const database = DB.db;
-    const res = await database.collection("clubs").findOne(
+    const res = await database.collection("clubs").find(
         {},
         {
             "_id": 0, 
