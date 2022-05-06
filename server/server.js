@@ -1,4 +1,12 @@
-import { checkAccountLogin, createNewAccount, addField, createNewClub, getClubInfo, getClubNames, applyToClub } from "./database.js"
+import { 
+    checkAccountLogin, 
+    createNewAccount, 
+    addField, 
+    createNewClub, 
+    getClubInfo, 
+    getClubNames, 
+    applyToClub 
+} from "./database.js"
 import express from 'express'
 import bodyParser from "body-parser"
 import logger from 'morgan';
@@ -6,14 +14,14 @@ import logger from 'morgan';
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static('./client'));
+app.get('/', (req, res) => res.redirect('/index.html'));
+app.use('/', express.static('client'));
 const port = process.env.PORT;
 const url = "https://only-clubs.herokuapp.com/";
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
-
 
 // USER CONTENT //
 
