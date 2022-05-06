@@ -49,8 +49,7 @@ async function getClubObject(clubName){
     myUrlWithParams.searchParams.append('red', false);
 
     const response = await fetch(url, {
-        method: 'GET',
-        redirect: 'follow'
+        method: 'GET'
     });
     const data = await response.json();
     return data;
