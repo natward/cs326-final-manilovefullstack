@@ -44,8 +44,7 @@ async function getClubList() {
     const url = new URL('https://only-clubs.herokuapp.com/all-clubs');
 
     const response = await fetch(url, {
-        method: 'GET',
-        redirect: 'follow'
+        method: 'GET'
     });
     const data = await response.json();
     return data;
