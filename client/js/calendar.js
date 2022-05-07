@@ -54,3 +54,25 @@ async function getClubObject(clubName){
     const data = await response.json();
     return data;
 }
+
+document.getElementByID('back').addEventListener('click', goToClubPage);
+
+//need to make a button to go back to club page from event list
+async function goToClubPage() {
+    const names = response.club_names;
+    const nameToFind = document.getElementById('list-item').value;
+    const name = names.find(
+        function(str) {
+            return str === nameToFind;
+        }
+    );
+    const url = new URL("https://only-clubs.herokuapp.com/get-club");
+
+    myUrlWithParams.searchParams.append('club', name);
+    myUrlWithParams.searchParams.append('red', true);
+
+    await fetch(url, {
+        method: 'GET',
+        redirect: 'follow'
+    });
+}
