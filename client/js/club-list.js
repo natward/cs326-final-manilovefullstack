@@ -19,7 +19,7 @@ function render(element) {
     }
 }
 
-document.getElementById('list-item').addEventListener("click", async () => goToClubPage());
+document.getElementById('list-item').addEventListener("click", async () => await goToClubPage());
 
 async function goToClubPage() {
     const names = response.club_names;
