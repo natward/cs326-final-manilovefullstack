@@ -55,7 +55,7 @@ async function getClubObject(clubName){
     return data;
 }
 
-document.getElementByID('back').addEventListener('click', goToClubPage);
+document.getElementByID('back').addEventListener('click', async () => await goToClubPage());
 
 //need to make a button to go back to club page from event list
 async function goToClubPage() {
