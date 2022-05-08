@@ -1,5 +1,5 @@
 export async function getClubUrl(clubName){
-    const url = "/get-club";
+    const url = new URL('https://only-clubs.herokuapp.comget-club');
 
     myUrlWithParams.searchParams.append("club", clubName);
     myUrlWithParams.searchParams.append("red", false);
@@ -28,7 +28,7 @@ export async function submitApplication(name, grade, experience){
 
 export async function goToEvents(clubName) {
 
-    const url = "/get-events";
+    const url = new URL('https://only-clubs.herokuapp.com/get-events');
 
     myUrlWithParams.searchParams.append("club", clubName);
     myUrlWithParams.searchParams.append("red", true);
