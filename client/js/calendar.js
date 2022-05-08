@@ -43,7 +43,7 @@ function render(element) {
 
 //Returns club information given a club name
 async function getClubObject(clubName){
-    const url = new URL('https://only-clubs.herokuapp.com/get-events');
+    const url = "/get-events";
 
     myUrlWithParams.searchParams.append('club', clubName);
     myUrlWithParams.searchParams.append('red', false);
