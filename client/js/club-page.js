@@ -1,12 +1,9 @@
-import * as crud from './crud.js';
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const clubName = urlParams.get('club');
 
+const response = await getClubUrl(clubName);
 
-const currentURL = window.location.href;
-const params = new URLSearchParams(currentURL);
-const clubName = params.get('club');
-
-
-const response = await crud.getClubUrl(clubName);
 // picture and vid wil be urls to the image/vid
 if(response["club-image"] === undefined ){
     const pictureUrl = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.beamliving.com%2Fstories%2Ffunny-2021-memes&psig=AOvVaw2NVTobAEeszJ7jwlMvX1mP&ust=1650500485036000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJj8pM2vofcCFQAAAAAdAAAAABAQ";
@@ -57,7 +54,10 @@ video.id = "dog-vid";
 video.autoplay = true;
 pageMedia.appendChild(video);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 519a650debcdd676bc76744ff95de0c424e5fad9
 const applyButton = document.getElementById("apply");
 
 applyButton.addEventListener('click',  async (e) => {
@@ -67,7 +67,6 @@ applyButton.addEventListener('click',  async (e) => {
 
     await crud.submitApplication(name, grade, experience);
 
-    // reset form
     document.getElementById('apply-name').value = "";
     document.getElementById('apply-grade').value = "";
     document.getElementById('apply-experience').value = "";
@@ -79,3 +78,41 @@ eventButton.addEventListener('click',  async (e) => {
     await crud.goToEvents(clubName);
 });
 
+ async function getClubUrl(clubName){
+    const url = new URL('https://only-clubs.herokuapp.com/get-club');
+
+    myUrlWithParams.searchParams.append("club", clubName);
+    myUrlWithParams.searchParams.append("red", false);
+
+    const response = await fetch(url.href);
+    const data = await response.json();
+    return data;
+}
+
+ async function submitApplication(name, grade, experience){
+    const response = await fetch(`/apply`, {
+        method: 'POST',
+        data: {
+            "name": name,
+            "grade": grade,
+            "experience": experience,
+        }
+    });
+    // const data = await response.json();
+    // return data;
+}
+
+ async function goToEvents(clubName) {
+
+    const url = new URL('https://only-clubs.herokuapp.com/get-events');
+
+    myUrlWithParams.searchParams.append("club", clubName);
+    myUrlWithParams.searchParams.append("red", true);
+
+    const response = await fetch(url, {
+      method: 'GET',
+      redirect: 'follow'
+    });
+    const data = await response.json();
+    return data;
+  }

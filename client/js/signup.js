@@ -14,7 +14,11 @@ signup_bttn.addEventListener("click", async (e) => {
     console.log(spireid);
     console.log(password);
 
+<<<<<<< HEAD
     let res = await fetch("/signup", {
+=======
+    let res = await fetch(url+"/signup", {
+>>>>>>> 519a650debcdd676bc76744ff95de0c424e5fad9
         method: "post",
         headers: {
             'Accept': 'application/json',

@@ -6,7 +6,6 @@ signup_bttn.addEventListener("click", (e) => {
     location.href = url+"/signup.html";
 });
 
-
 signin_bttn.addEventListener("click", async (e) => {
     const spireid = document.getElementById("user").value;
     const password = document.getElementById("pass").value;
@@ -14,7 +13,11 @@ signin_bttn.addEventListener("click", async (e) => {
     console.log(spireid);
     console.log(password);
 
+<<<<<<< HEAD
     let res = await fetch("https://only-clubs.herokuapp.com/signin", {
+=======
+    let res = await fetch(url+"/signin", {
+>>>>>>> 519a650debcdd676bc76744ff95de0c424e5fad9
         method: "post",
         headers: {
             'Accept': 'application/json',

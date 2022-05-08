@@ -1,4 +1,5 @@
 Title: ManILoveFullStack
+<<<<<<< HEAD
 
 Subtitle: OnlyClubs
 
@@ -28,6 +29,38 @@ User Interface:
     This title page shows an example image of a club. It also includes a description of the club at the bottom of the page. Additionally, it includes the sign in and sign up button at the top right of the screen which changes to the user page once the user has already logged in or their user/pass are stored in the local storage session.
     ![image info](./images/userDashScreenShot.png)
     This page includes a list of all of the clubs that the user currently is a part of which allows them to explore each of the clubs when clicked. Additionally, it has a link to the clublist page (described above).
+=======
+ 
+Subtitle: OnlyClubs
+ 
+Semester: Spring 2022
+ 
+Overview:
+   Our application is a website for student clubs that allows students to sign up for clubs easily. There is a userDashboard that makes it so students can easily see the clubs they are involved in and a club list page where students can see all the clubs and choose to sign up for clubs that interest them. Our application is innovative since we found that CampusPulse is not that good for signing up for clubs because the interface is so user unfriendly. OnlyClubs is a better and more user friendly version of CampusPulse.
+ 
+Team Members:
+   Yuval Shechter; YuvalShechter; https://github.com/YuvalShechter
+   Natalie Ward; natward; https://github.com/natward
+   Sebastian McKay; Sebastian-McKayy; https://github.com/Sebastian-McKayy
+   Catherine Huang: Catherine-Huang: https://github.com/catherinehuang1
+ 
+User Interface:
+   ![image info](./images/Sign_In_Page.png)
+   The sign in page allows users to sign into their account by typing in their username and password, which is verified that it is a valid username password combination that has already been created and stored in the server. If someone doesn't have an account they can get redirected to the signup page using the "Don't have account" hyperlink.
+   ![image info](./images/Sign_Up_Page.png)
+   The sign up page allows a student to create an account using a new username and password that is then stored into the database. If someone already has an account they can get redirected to the signin page using the "already have account" hyperlink.
+   ![image info](./images/eventsScreenshot.png)
+   This events page shows all the events that a specific club has in the future. It populates the page by getting the club name from the server and then using the club-events associated with the club and adding them in as HTML elements.
+   ![image info](./images/clubListScreenshot.png)
+   The club list page shows all the clubs that are in the database and populates them on the screen, allowing students to click on the individual clubs and redirect them to that clubs page. 
+   ![image info](./images/clubPageScreenSht.png)
+   The Club Page shows a specific club page with the HTML elements automatically generated from data stored in the server like the picture for the club, a video description of the club, and a place to apply and enter your information when joining the club. There is also a button that redirects the user to this club’s events page. 
+   ![image info](./images/titleScreenScreenshot.png)
+   This title page shows an example image of a club. It also includes a description of the club at the bottom of the page. Additionally, it includes the sign in and sign up button at the top right of the screen which changes to the user page once the user has already logged in or their user/pass are stored in the local storage session.
+   
+   ![image info](./images/userDashScreenShot.png)
+   This page includes a list of all of the clubs that the user currently is a part of which allows them to explore each of the clubs when clicked. Additionally, it has a link to the clublist page (described above).
+>>>>>>> 519a650debcdd676bc76744ff95de0c424e5fad9
  
 APIs:
 "/add-fields": Adds either one friend or one club to the user’s array of clubs and friends
@@ -73,6 +106,7 @@ Natalie Ward - I created the event list and club list pages and implemented func
 Catherine Huang - (Catherine has the flu, so Nat is writing this)
 Catherine created the club dashboard page and implemented server communications for that page. She set up the club page such that the club data can be injected into the page when accessed, and added the Events and Apply buttons to go to the Events list page and send the user’s data to the server when clicked. Additionally, she wrote the descriptions for API endpoints.
  
+<<<<<<< HEAD
  
 Sebastian McKay - I created the userDashboard and TitleScreen pages for the website and implemented the functions to dynamically populate these pages with information stored within the database of our server. I also assisted with creating the backend server and setting up the endpoints that allowed for communication between different pages. I also cleaned up the code and added the favicon. I also helped deploy to heroku for milestone 2, and tried to fix the errors encountered when deploying to heroku.
  
@@ -82,3 +116,9 @@ This project was an interesting experience, it started with us barely knowing ho
 
 
 
+=======
+Sebastian McKay - I created the userDashboard and TitleScreen pages for the website and implemented the functions to dynamically populate these pages with information stored within the database of our server. I also assisted with creating the backend server and setting up the endpoints that allowed for communication between different pages. I also cleaned up the code and added the favicon. I also helped deploy to heroku for milestone 2, and tried to fix the errors encountered when deploying to heroku. 
+ 
+Conclusion:
+This project was an interesting experience, it started with us barely knowing how to implement things in pure html/css/js to knowing how to run and deploy onto a real server online with several different js libraries such as express and morgan and using node js and using a third party database to host our site’s data. We found it difficult to put everything together even though separately it worked as intended, that is just because we had a lot of trouble actually deploying our code onto Heroku in the first place. It would have been nice to know that we will be using a different storage mechanism besides a plain JSON file ahead of time so we could have started with that, as it was: Yuval had to rewrite a lot of the database fetching code to accommodate for using a new form of database.
+>>>>>>> 519a650debcdd676bc76744ff95de0c424e5fad9

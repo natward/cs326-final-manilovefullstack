@@ -1,6 +1,3 @@
-// NW: consider sorting eventList by date and time to ensure chronological order?
-// might allow users to add events later on (need another page)
-// for now still need to get events from server 
 
 // Generate current date
 const dateObj =  new Date();
@@ -53,4 +50,25 @@ async function getClubObject(clubName){
     });
     const data = await response.json();
     return data;
+}
+
+document.getElementByID('back').addEventListener('click', async () => await goToClubPage());
+
+async function goToClubPage() {
+    const names = response.club_names;
+    const nameToFind = document.getElementById('list-item').value;
+    const name = names.find(
+        function(str) {
+            return str === nameToFind;
+        }
+    );
+    const url = new URL("https://only-clubs.herokuapp.com/get-club");
+
+    myUrlWithParams.searchParams.append('club', name);
+    myUrlWithParams.searchParams.append('red', true);
+
+    await fetch(url, {
+        method: 'GET',
+        redirect: 'follow'
+    });
 }
