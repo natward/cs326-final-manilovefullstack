@@ -112,13 +112,3 @@ Sebastian McKay - I created the userDashboard and TitleScreen pages for the webs
  
 Conclusion:
 This project was an interesting experience, it started with us barely knowing how to implement things in pure html/css/js to knowing how to run and deploy onto a real server online with several different js libraries such as express and morgan and using node js and using a third party database to host our site’s data. We found it difficult to put everything together even though separately it worked as intended, that is just because we had a lot of trouble actually deploying our code onto Heroku in the first place. It would have been nice to know that we will be using a different storage mechanism besides a plain JSON file ahead of time so we could have started with that, as it was: Yuval had to rewrite a lot of the database fetching code to accommodate for using a new form of database.
-
-
-
-
-=======
-Sebastian McKay - I created the userDashboard and TitleScreen pages for the website and implemented the functions to dynamically populate these pages with information stored within the database of our server. I also assisted with creating the backend server and setting up the endpoints that allowed for communication between different pages. I also cleaned up the code and added the favicon. I also helped deploy to heroku for milestone 2, and tried to fix the errors encountered when deploying to heroku. 
- 
-Conclusion:
-This project was an interesting experience, it started with us barely knowing how to implement things in pure html/css/js to knowing how to run and deploy onto a real server online with several different js libraries such as express and morgan and using node js and using a third party database to host our site’s data. We found it difficult to put everything together even though separately it worked as intended, that is just because we had a lot of trouble actually deploying our code onto Heroku in the first place. It would have been nice to know that we will be using a different storage mechanism besides a plain JSON file ahead of time so we could have started with that, as it was: Yuval had to rewrite a lot of the database fetching code to accommodate for using a new form of database.
->>>>>>> 519a650debcdd676bc76744ff95de0c424e5fad9
