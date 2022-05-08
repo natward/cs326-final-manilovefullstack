@@ -1,5 +1,5 @@
 export async function getClubUrl(clubName){
-    const url = new URL('https://only-clubs.herokuapp.comget-club');
+    const url = new URL('https://only-clubs.herokuapp.com/get-club');
 
     myUrlWithParams.searchParams.append("club", clubName);
     myUrlWithParams.searchParams.append("red", false);
