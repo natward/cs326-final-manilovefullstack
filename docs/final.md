@@ -106,8 +106,6 @@ Natalie Ward - I created the event list and club list pages and implemented func
 Catherine Huang - (Catherine has the flu, so Nat is writing this)
 Catherine created the club dashboard page and implemented server communications for that page. She set up the club page such that the club data can be injected into the page when accessed, and added the Events and Apply buttons to go to the Events list page and send the user’s data to the server when clicked. Additionally, she wrote the descriptions for API endpoints.
  
-<<<<<<< HEAD
- 
 Sebastian McKay - I created the userDashboard and TitleScreen pages for the website and implemented the functions to dynamically populate these pages with information stored within the database of our server. I also assisted with creating the backend server and setting up the endpoints that allowed for communication between different pages. I also cleaned up the code and added the favicon. I also helped deploy to heroku for milestone 2, and tried to fix the errors encountered when deploying to heroku.
  
 Conclusion:
