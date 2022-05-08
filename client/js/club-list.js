@@ -5,8 +5,6 @@ const initialResponse = await getClubList();
 
 const response = parseResponse(initialResponse);
 
-console.log(response);
-
 const list = document.getElementById('club-list');
 
 render(list);

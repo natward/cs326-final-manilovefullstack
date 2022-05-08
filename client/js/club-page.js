@@ -1,11 +1,8 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const clubName = urlParams.get('club');
-console.log(clubName);
 
 const response = await getClubUrl(clubName);
-
-console.log(response);
 
 // picture and vid wil be urls to the image/vid
 if(response["club-image"] === undefined ){
@@ -57,13 +54,6 @@ video.id = "dog-vid";
 video.autoplay = true;
 pageMedia.appendChild(video);
 
-//'/test/?test=test'
-
-// post req needs body
-// yuval's server.js comment says how post req expects body/fields keys in its json object
-
-
-
 const applyButton = document.getElementById("apply");
 
 applyButton.addEventListener('click',  async (e) => {
@@ -71,10 +61,8 @@ applyButton.addEventListener('click',  async (e) => {
     const grade = document.getElementById('apply-grade').value;
     const experience = document.getElementById('apply-experience').value;
 
-    // need to set it to a variable?
     await crud.submitApplication(name, grade, experience);
 
-    // reset form
     document.getElementById('apply-name').value = "";
     document.getElementById('apply-grade').value = "";
     document.getElementById('apply-experience').value = "";
@@ -87,7 +75,6 @@ eventButton.addEventListener('click',  async (e) => {
 });
 
  async function getClubUrl(clubName){
-    console.log("gotem");
     const url = new URL('https://only-clubs.herokuapp.com/get-club');
 
     myUrlWithParams.searchParams.append("club", clubName);
@@ -95,11 +82,9 @@ eventButton.addEventListener('click',  async (e) => {
 
     const response = await fetch(url.href);
     const data = await response.json();
-    console.log(data);
     return data;
 }
 
-// don't put params into endpoint
  async function submitApplication(name, grade, experience){
     const response = await fetch(`/apply`, {
         method: 'POST',
@@ -120,8 +105,6 @@ eventButton.addEventListener('click',  async (e) => {
     myUrlWithParams.searchParams.append("club", clubName);
     myUrlWithParams.searchParams.append("red", true);
 
-
-    // need to do anything else w clubName??
     const response = await fetch(url, {
       method: 'GET',
       redirect: 'follow'

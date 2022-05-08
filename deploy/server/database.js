@@ -27,8 +27,6 @@ class MongoDatabase {
 const DB = new MongoDatabase();
 await DB.connect();
 
-// TODO: Refactor this code so that it works with MONGODB: change to querying database
-
 // Account object structure:
 // username: {
 //     "pass": ...,
@@ -59,7 +57,6 @@ async function checkAccountLogin(user, pass) {
         {"user": user},
         {"pass": 1}
     );
-
     if(!res) {
         return {"error": "User not found", "statuscode": -3};
     } else {
@@ -74,7 +71,7 @@ async function checkAccountLogin(user, pass) {
 
 async function createNewAccount(user, pass) {
     const database = DB.db;
-    const res = await database.colletion("accounts").insertOne(
+    const res = await database.collection("accounts").insertOne(
         {"user": user, "pass": pass}
     );
     return {};
@@ -108,7 +105,7 @@ async function getClubInfo(club) {
             "club-image": 1,
             "club-video": 1
         }
-    );
+    ).toJSON();
     if (!res) {
         return {"error": "Club not found", "statuscode": -1}
     } else {
@@ -146,13 +143,23 @@ async function getClubNames() {
         {},
         {
             "_id": 0, 
-            "club": 1
+            "club": 1,
+            "event-list": 1,
+            "club-descriptions": 1
         } 
-    );
-
+    ).toArray();
     if (!res) {
         return {"error": "No clubs found", "statuscode": -12}
     } else {
+        // res = res.toArray();
+        // let newres = {"club_name": [], "club_descs": []};
+        // for(let i = 0; i < res.length; i++) {
+        //     if ("club" in res[i])
+        //         newres["club_name"].append(res[i]["club"])
+        //     if ("club-descriptions" in res[i])
+        //         newres["club_descs"].append(res[i]["club-descriptions"])
+        // }
+        // return newres;
         return res;
     }
 }

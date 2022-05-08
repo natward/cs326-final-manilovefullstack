@@ -27,8 +27,6 @@ class MongoDatabase {
 const DB = new MongoDatabase();
 await DB.connect();
 
-// TODO: Refactor this code so that it works with MONGODB: change to querying database
-
 // Account object structure:
 // username: {
 //     "pass": ...,
@@ -46,7 +44,6 @@ async function addField(user, pass, fields) {
         {$set: fields},
         {"upsert": true}
     );
-    console.log(res);
     if(res["matchedCount"] != 1) {
         return {"error": "Fields update unsuccesful", "statuscode": -6}
     } else {
@@ -60,7 +57,6 @@ async function checkAccountLogin(user, pass) {
         {"user": user},
         {"pass": 1}
     );
-    console.log(res);
     if(!res) {
         return {"error": "User not found", "statuscode": -3};
     } else {
@@ -78,7 +74,6 @@ async function createNewAccount(user, pass) {
     const res = await database.collection("accounts").insertOne(
         {"user": user, "pass": pass}
     );
-    console.log(res);
     return {};
 }
 
@@ -100,7 +95,6 @@ async function createNewAccount(user, pass) {
 
 async function getClubInfo(club) {
     const database = DB.db;
-    console.log("random");
     const res = await database.collection("clubs").findOne(
         {"club": club},
         {
@@ -112,7 +106,6 @@ async function getClubInfo(club) {
             "club-video": 1
         }
     ).toJSON();
-    console.log(res);
     if (!res) {
         return {"error": "Club not found", "statuscode": -1}
     } else {
@@ -126,7 +119,6 @@ async function createNewClub(club, fields) {
     const res = await database.collection("clubs").insertOne(
         fields
     );
-    console.log(res);
 
     return res;
 }
@@ -138,7 +130,6 @@ async function updateClub(club, fields) {
         {$set: fields},
         {"upsert": true}
     );
-    console.log(res);
     if(res["matchedCount"] != 1) {
         return {"error": "Fields update unsuccesful", "statuscode": -11}
     } else {
@@ -157,7 +148,6 @@ async function getClubNames() {
             "club-descriptions": 1
         } 
     ).toArray();
-    console.log(res);
     if (!res) {
         return {"error": "No clubs found", "statuscode": -12}
     } else {
@@ -184,10 +174,6 @@ async function applyToClub(user, pass, club) {
         {$push: {"club-applications": user}},
         {"upsert": true}
     );
-    console.log(res);
 }
 
 export { checkAccountLogin, createNewAccount, addField, createNewClub, getClubInfo, getClubNames, applyToClub, updateClub };
-
-
-//hi

@@ -1,16 +1,8 @@
-// when you fetch the info from the server you get an object like this
-// {
-//     "clubs": [...],
-//     "friends": [...]
-// }
+
 const clubs = document.getElementById("clubs-list");
 const friends = document.getElementById("friends-list");
 let response = [];
-// const response = {
-//     "clubs": ["bob", "yuval", "people"],
-//     "friends": ["cap","doodlebob"]
-// }
-// ADD THIS BACK IN LATER
+
 const url = new URL("https://only-clubs.herokuapp.com/get-fields");
 async function init(){
     if(localStorage.getItem("accset") === null){
@@ -31,7 +23,6 @@ async function init(){
 init();
 
 if (Object.keys(response).length === 0) {
-    //redirect to club list
     location.href = "https://only-clubs.herokuapp.com/club-list.html";
 }
 else {

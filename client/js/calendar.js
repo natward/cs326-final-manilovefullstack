@@ -1,6 +1,3 @@
-// NW: consider sorting eventList by date and time to ensure chronological order?
-// might allow users to add events later on (need another page)
-// for now still need to get events from server 
 
 // Generate current date
 const dateObj =  new Date();
@@ -57,7 +54,6 @@ async function getClubObject(clubName){
 
 document.getElementByID('back').addEventListener('click', async () => await goToClubPage());
 
-//need to make a button to go back to club page from event list
 async function goToClubPage() {
     const names = response.club_names;
     const nameToFind = document.getElementById('list-item').value;

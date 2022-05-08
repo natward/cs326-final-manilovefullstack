@@ -62,7 +62,6 @@ app.post("/get-fields", async (req, res) => {
         res.status(200).json(ret);
 });
 
-// https://stackoverflow.com/questions/54048193/read-value-from-json-file-using-node-js
 // Post request body format:
 // {
 //     "user": ...,

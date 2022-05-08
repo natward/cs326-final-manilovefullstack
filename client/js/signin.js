@@ -6,7 +6,6 @@ signup_bttn.addEventListener("click", (e) => {
     location.href = url+"/signup.html";
 });
 
-
 signin_bttn.addEventListener("click", async (e) => {
     const spireid = document.getElementById("user").value;
     const password = document.getElementById("pass").value;
