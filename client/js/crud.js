@@ -1,14 +1,13 @@
 export async function getClubUrl(clubName){
+    console.log("gotem");
     const url = new URL('https://only-clubs.herokuapp.com/get-club');
 
     myUrlWithParams.searchParams.append("club", clubName);
     myUrlWithParams.searchParams.append("red", false);
 
-    const response = await fetch(url, {
-        method: 'GET',
-        redirect: 'follow'
-    });
+    const response = await fetch(url.href);
     const data = await response.json();
+    console.log(data);
     return data;
 }
 
