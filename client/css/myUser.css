@@ -62,3 +62,16 @@
     border: solid;
 }
 
+#button{
+    background-color:slateblue;
+    text-align:center;
+    color: white;
+    border-radius: 5px;
+    padding-top:5%;
+    padding-bottom:5%;
+    margin-top:15%;
+    margin-bottom:15%;
+    width: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 100%
+}
