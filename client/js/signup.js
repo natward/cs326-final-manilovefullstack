@@ -14,7 +14,7 @@ signup_bttn.addEventListener("click", async (e) => {
     console.log(spireid);
     console.log(password);
 
-    let res = await fetch("/signup", {
+    let res = await fetch("http://localhost:5050/signup", {
         method: "post",
         headers: {
             'Accept': 'application/json',
