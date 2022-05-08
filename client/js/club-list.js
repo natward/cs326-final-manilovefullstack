@@ -1,11 +1,26 @@
 
-const response = getClubList();
+const initialResponse = await getClubList();
 // response:
 // {club_names: [], club_descs: []}
+
+const response = parseResponse(initialResponse);
+
+console.log(response);
 
 const list = document.getElementById('club-list');
 
 render(list);
+
+function parseResponse(res) {
+        let newres = {"club_names": [], "club_descs": []};
+        for(let i = 0; i < res.length; i++) {
+            if ("club" in res[i])
+                newres["club_names"].push(res[i]["club"])
+            if ("club-description" in res[i])
+                newres["club_descs"].push(res[i]["club-description"])
+        }
+        return newres;
+}
 
 // Renders the club list
 function render(element) {
@@ -16,28 +31,17 @@ function render(element) {
         div.value = response.club_names[i];
         div.innerText = response.club_names[i] + '\n' + response.club_descs[i];
         element.appendChild(div);
+        div.addEventListener("click", async () => await goToClubPage(response.club_names[i]));
     }
 }
 
-document.getElementById('list-item').addEventListener("click", async () => await goToClubPage());
+async function goToClubPage(name) {
 
-async function goToClubPage() {
-    const names = response.club_names;
-    const nameToFind = document.getElementById('list-item').value;
-    const name = names.find(
-        function(str) {
-            return str === nameToFind;
-        }
-    );
-    const url = new URL("https://only-clubs.herokuapp.com/get-club");
+    const url = new URL("https://only-clubs.herokuapp.com/club-page.html");
 
-    myUrlWithParams.searchParams.append('club', name);
-    myUrlWithParams.searchParams.append('red', true);
+    url.searchParams.append('club', name);
 
-    await fetch(url, {
-        method: 'GET',
-        redirect: 'follow'
-    });
+    window.location.href = url.href;
 }
 
 async function getClubList() {

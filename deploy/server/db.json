@@ -1,0 +1,62 @@
+{
+    "accounts": {
+        "jimmy smith": {
+            "pass": "thejimmster",
+            "clubs": [],
+            "friends": []
+        },
+        "jimmer smith": {
+            "pass": "thejimmsterer",
+            "clubs": [
+                "big club"
+            ],
+            "friends": []
+        },
+        "jimmest smith": {
+            "pass": "thejimmsterest",
+            "clubs": [
+                "big club"
+            ],
+            "friends": []
+        }
+    },
+    "clubs": {
+        "big club": {
+            "event-list": [
+                "event 1",
+                "event 2",
+                "event 3"
+            ],
+            "president-name": "jim smith",
+            "club-image": "https://i.pinimg.com/originals/5f/8b/56/5f8b566e15d5f70705528764312087de.png",
+            "club-video": "https://www.youtube.com/watch?v=nYdiwIDrc7c",
+            "club-description": "This is a big club.",
+            "club-applications": [
+                "jimmest smith",
+                "jimmer smith"
+            ]
+        },
+        "bigger club": {
+            "event-list": [
+                "event 1",
+                "event 2",
+                "event 3"
+            ],
+            "president-name": "jimmer smith",
+            "club-image": "https://i.pinimg.com/originals/5f/8b/56/5f8b566e15d5f70705528764312087de.png",
+            "club-video": "https://www.youtube.com/watch?v=o0EokwNqLb0",
+            "club-description": "This is a bigger club."
+        },
+        "biggest club": {
+            "event-list": [
+                "event 1",
+                "event 2",
+                "event 3"
+            ],
+            "president-name": "jimmest smith",
+            "club-image": "https://i.pinimg.com/originals/5f/8b/56/5f8b566e15d5f70705528764312087de.png",
+            "club-video": "https://www.youtube.com/watch?v=Slb6wZQMIyM",
+            "club-description": "This is the biggest club."
+        }
+    }
+}

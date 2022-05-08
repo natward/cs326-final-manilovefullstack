@@ -39,9 +39,9 @@ app.listen(port, () => {
 //     "clubs": ...,
 //     "friends": ...
 // }
-app.post("/add-fields", (req, res) => {
+app.post("/add-fields", async (req, res) => {
     const q = req.body;
-    const ret = addField(q.user, q.pass, q.fields);
+    const ret = await addField(q.user, q.pass, q.fields);
     if ("error" in ret)
         res.status(501).json({"error": ret["error"]});
     else
@@ -53,9 +53,9 @@ app.post("/add-fields", (req, res) => {
 //     "user": ...,
 //     "pass": ...
 // }
-app.post("/get-fields", (req, res) => {
+app.post("/get-fields", async (req, res) => {
     const q = req.body;
-    const ret = checkAccountLogin(q.user, q.pass);
+    const ret = await checkAccountLogin(q.user, q.pass);
     if ("error" in ret)
         res.status(501).json({"error": ret["error"]});
     else
@@ -68,18 +68,18 @@ app.post("/get-fields", (req, res) => {
 //     "user": ...,
 //     "pass": ...
 // }
-app.post("/signin", (req, res) => {
+app.post("/signin", async (req, res) => {
     const q = req.body;
-    const ret = checkAccountLogin(q.user, q.pass);
+    const ret = await checkAccountLogin(q.user, q.pass);
     if ("error" in ret)
         res.status(501).json({"error": ret["error"]});
     else
         res.status(200).send(ret);
 });
 
-app.post("/apply", (req, res) => {
+app.post("/apply", async (req, res) => {
     const q = req.body;
-    let ret = checkAccountLogin(q.user, q.pass);
+    let ret = await checkAccountLogin(q.user, q.pass);
     if ("error" in ret)
         res.status(501).json({"error": ret["error"]});
     else {
@@ -96,9 +96,9 @@ app.post("/apply", (req, res) => {
 //     "user": ...,
 //     "pass": ...
 // }
-app.post("/signup", (req, res) => {
+app.post("/signup", async (req, res) => {
     const q = req.body;
-    const ret = createNewAccount(q.user, q.pass);
+    const ret = await createNewAccount(q.user, q.pass);
     if ("error" in ret)
         res.status(501).json({"error": ret["error"]});
     else
@@ -125,9 +125,9 @@ app.post("/signup", (req, res) => {
 //         "club-image": ...
 //     }
 // }
-app.post("/add-club", (req, res) => {
+app.post("/add-club", async (req, res) => {
     const q = req.body;
-    const ret = createNewClub(q.club, q.fields);
+    const ret = await createNewClub(q.club, q.fields);
     if ("error" in ret)
         res.status(501).json({"error": ret["error"]});
     else
@@ -138,9 +138,11 @@ app.post("/add-club", (req, res) => {
 // either empty obj {}
 // or
 // full {"event-list: ..., "presidents-name": ..., etc...}
-app.get("/get-club", (req, res) => {
+app.get("/get-club", async (req, res) => {
+    console.log("hi");
     const q = req.query;
-    const ret = getClubInfo(q.club);
+    console.log(q);
+    const ret = await getClubInfo(q.club);
     if ("error" in ret)
         res.status(501).json({"error": ret["error"]});
     else {
@@ -153,9 +155,9 @@ app.get("/get-club", (req, res) => {
     }
 });
 
-app.get("/get-events", (req, res) => {
+app.get("/get-events", async (req, res) => {
     const q = req.query;
-    const ret = getClubInfo(q.club);
+    const ret = await getClubInfo(q.club);
     if ("error" in ret)
         res.status(501).json({"error": ret["error"]});
     else {
@@ -168,9 +170,9 @@ app.get("/get-events", (req, res) => {
     }
 });
 
-app.get("/all-clubs", (req, res) => {
+app.get("/all-clubs", async (req, res) => {
     const q = req.query;
-    const ret = getClubNames();
+    const ret = await getClubNames();
     if ("error" in ret)
         res.status(501).json({"error": ret["error"]});
     else
