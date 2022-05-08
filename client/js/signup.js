@@ -1,20 +1,20 @@
 const signin_bttn = document.getElementById("signin");
 const signup_bttn = document.getElementById("signup");
-const url = "milfs.com";
+const url = "https://only-clubs.herokuapp.com";
 
 
 signin_bttn.addEventListener("click", (e) => {
     location.href = url+"/signin.html";
 });
 
-signup_bttn.addEventListener("click", (e) => {
+signup_bttn.addEventListener("click", async (e) => {
     const spireid = document.getElementById("user").value;
     const password = document.getElementById("pass").value;
     // send spireid and password to backend
     console.log(spireid);
     console.log(password);
 
-    let res = await fetch("http://localhost:5050/signup", {
+    let res = await fetch(url+"/signup", {
         method: "post",
         headers: {
             'Accept': 'application/json',
