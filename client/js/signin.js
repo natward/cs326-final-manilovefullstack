@@ -14,7 +14,7 @@ signin_bttn.addEventListener("click", async (e) => {
     console.log(spireid);
     console.log(password);
 
-    let res = await fetch("/signin", {
+    let res = await fetch("https://only-clubs.herokuapp.com/signin", {
         method: "post",
         headers: {
             'Accept': 'application/json',

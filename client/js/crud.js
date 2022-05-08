@@ -28,7 +28,7 @@ export async function submitApplication(name, grade, experience){
 
 export async function goToEvents(clubName) {
 
-    const url = "/get-events";
+    const url = "https://only-clubs.herokuapp.com/get-events";
 
     myUrlWithParams.searchParams.append("club", clubName);
     myUrlWithParams.searchParams.append("red", true);
