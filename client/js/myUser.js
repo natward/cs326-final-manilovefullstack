@@ -5,12 +5,7 @@
 // }
 const clubs = document.getElementById("clubs-list");
 const friends = document.getElementById("friends-list");
-// const response = {
-//     "clubs": ["bob", "yuval", "people"],
-//     "friends": ["cap","doodlebob"]
-// }
-// ADD THIS BACK IN LATER
-const url = new URL("https://only-clubs.herokuapp.com/get-fields");
+const url = "/get-fields";
 async function init(){
     if(localStorage.getItem("accset") === null){
         location.href="https://only-clubs.herokuapp.com/signin.html"
@@ -37,7 +32,7 @@ for(let i=0; i< response['clubs'].length; i++){
     const specificClub = document.getElementById(response['clubs'][i]);
     specificClub.innerHTML = response['clubs'][i];
     specificClub.addEventListener("click", async (e)=> {
-        const urlClub = new URL("https://only-clubs.herokuapp.com/get-club");
+        const urlClub = "/get-club";
         urlClub.searchParams.append("club", specificClub);
         urlClub.searchParams.append("red", true);
         let responseClub = await fetch(urlClub, { method: 'GET', redirect: 'follow' });

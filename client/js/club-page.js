@@ -57,12 +57,6 @@ video.id = "dog-vid";
 video.autoplay = true;
 pageMedia.appendChild(video);
 
-//'/test/?test=test'
-
-// post req needs body
-// yuval's server.js comment says how post req expects body/fields keys in its json object
-
-
 
 const applyButton = document.getElementById("apply");
 
@@ -71,7 +65,6 @@ applyButton.addEventListener('click',  async (e) => {
     const grade = document.getElementById('apply-grade').value;
     const experience = document.getElementById('apply-experience').value;
 
-    // need to set it to a variable?
     await crud.submitApplication(name, grade, experience);
 
     // reset form
